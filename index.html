@@ -1,173 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Maffezzoli Picolli | Analista Forense Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card: #111827;
-            --text: #e5e7eb;
-            --muted: #9ca3af;
-            --accent: #22d3ee;
-        }
+<title>Matheus Picolli | Digital Forensics & DFIR</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-        }
+<meta name="description" content="Digital Forensics Analyst specializing in DFIR, memory analysis, disk forensics and malware analysis.">
+<meta name="author" content="Matheus Maffezzoli Picolli">
 
-        body {
-            background: linear-gradient(135deg, #020617, #020617);
-            color: var(--text);
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --bg: #020617;
+    --panel: #020617cc;
+    --border: #1e293b;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #22d3ee;
+    --danger: #f43f5e;
+    --font: 'Segoe UI', monospace;
+}
 
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            background: radial-gradient(circle at top, #0ea5e9, transparent 60%);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
 
-        header h1 {
-            font-size: 2.4rem;
-        }
+body {
+    background: radial-gradient(circle at top, #020617, #000);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-        header p {
-            color: var(--muted);
-            margin-top: 10px;
-            font-size: 1.1rem;
-        }
+header {
+    padding: 70px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
 
-        main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-            display: grid;
-            gap: 30px;
-        }
+header h1 {
+    font-size: 2.6rem;
+    color: var(--accent);
+}
 
-        section {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #1f2933;
-        }
+header p {
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
 
-        section h2 {
-            margin-bottom: 15px;
-            color: var(--accent);
-            font-size: 1.4rem;
-        }
+.lang-switch {
+    margin-top: 20px;
+}
 
-        ul {
-            list-style: none;
-        }
+.lang-switch button {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 14px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 6px;
+}
 
-        ul li {
-            margin-bottom: 8px;
-            color: var(--muted);
-        }
+.lang-switch button:hover {
+    border-color: var(--accent);
+}
 
-        .badges span {
-            display: inline-block;
-            background: #020617;
-            border: 1px solid #1f2937;
-            padding: 6px 12px;
-            border-radius: 999px;
-            margin: 5px 5px 0 0;
-            font-size: 0.9rem;
-        }
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    display: grid;
+    gap: 30px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
+section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+}
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+section h2 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+.badges span {
+    display: inline-block;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin: 5px;
+    font-size: 0.9rem;
+    background: #020617;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: var(--muted);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+</style>
 </head>
+
 <body>
 
 <header>
     <h1>🧪 Matheus Maffezzoli Picolli</h1>
-    <p>Analista Forense Digital | DFIR | Investigação e Resposta a Incidentes</p>
+    <p id="subtitle-pt">Analista Forense Digital | DFIR | Resposta a Incidentes</p>
+    <p id="subtitle-en" class="hidden">Digital Forensics Analyst | DFIR | Incident Response</p>
+
+    <div class="lang-switch">
+        <button onclick="setLang('pt')">🇧🇷 PT</button>
+        <button onclick="setLang('en')">🇺🇸 EN</button>
+    </div>
 </header>
 
 <main>
 
-    <section>
-        <h2>🧠 Sobre</h2>
-        <p>
-            Especialista em investigação digital com foco em análise forense de sistemas,
-            memória RAM, tráfego de rede e engenharia reversa básica de malware.
-            Atuação em simulações de resposta a incidentes e uso de ferramentas forenses open source.
-        </p>
-    </section>
+<section>
+<h2>🧠 Sobre / About</h2>
 
-    <section>
-        <h2>🧰 Ferramentas Dominadas</h2>
-        <div class="badges">
-            <span>Autopsy</span>
-            <span>FTK Imager</span>
-            <span>Volatility</span>
-            <span>Rekall</span>
-            <span>Wireshark</span>
-            <span>NetWitness</span>
-            <span>Python (Forense)</span>
-        </div>
-    </section>
+<p id="about-pt">
+Especialista em investigação digital com foco em análise forense de discos, memória RAM,
+tráfego de rede e engenharia reversa básica de malware. Experiência em simulações de
+resposta a incidentes utilizando ferramentas open source.
+</p>
 
-    <section>
-        <h2>🧬 Projetos & Estudos</h2>
-        <ul>
-            <li><strong>Análise de RAM com Volatility:</strong> Investigação de dump de memória com foco em processos ocultos, conexões de rede e DLL Injection.</li>
-            <li><strong>Autopsy – Caso de Análise de Disco:</strong> Recuperação de arquivos deletados, análise de metadados e reconstrução de eventos via timeline.</li>
-            <li><strong>Análise Estática de Malware:</strong> Estudo de malware simples utilizando strings, VirusTotal, PEStudio e engenharia reversa básica.</li>
-        </ul>
-    </section>
+<p id="about-en" class="hidden">
+Digital investigation specialist focused on disk forensics, memory analysis,
+network traffic inspection and basic malware reverse engineering.
+Experienced in incident response simulations using open-source tools.
+</p>
+</section>
 
-    <section>
-        <h2>📚 Certificações & Cursos</h2>
-        <ul>
-            <li>📜 DFIR: Forensics 101 – BlueTeam Academy</li>
-            <li>📜 Análise de Incidentes – Detecção e Resposta</li>
-        </ul>
-    </section>
+<section>
+<h2>🧰 Ferramentas / Tools</h2>
+<div class="badges">
+<span>Autopsy</span>
+<span>FTK Imager</span>
+<span>Volatility</span>
+<span>Rekall</span>
+<span>Wireshark</span>
+<span>NetWitness</span>
+<span>Python (Forensics)</span>
+<span>VirusTotal</span>
+<span>PEStudio</span>
+</div>
+</section>
 
-    <section>
-        <h2>📫 Contato</h2>
-        <ul>
-            <li>✉️ <a href="mailto:matheusmpicolli5@gmail.com">matheusmpicolli5@gmail.com</a></li>
-            <li>📞 +55 48 9 9108-7790</li>
-            <li>🔗 <a href="#" target="_blank">LinkedIn</a></li>
-        </ul>
-    </section>
+<section>
+<h2>🧬 Projetos & Estudos / Projects</h2>
+<ul>
+<li>
+<strong>Análise de Memória RAM:</strong> Dump analysis using Volatility to identify hidden processes,
+network connections and DLL injections.
+</li>
+<li>
+<strong>Disk Forensics – Autopsy:</strong> Deleted file recovery, metadata analysis and forensic timeline reconstruction.
+</li>
+<li>
+<strong>Static Malware Analysis:</strong> String extraction, hash reputation, PE inspection and basic reverse engineering.
+</li>
+</ul>
+</section>
+
+<section>
+<h2>📚 Certificações / Certifications</h2>
+<ul>
+<li>📜 DFIR: Forensics 101 – BlueTeam Academy</li>
+<li>📜 Incident Detection and Response</li>
+</ul>
+</section>
+
+<section>
+<h2>📫 Contato / Contact</h2>
+<ul>
+<li>✉️ <a href="mailto:matheusmpicolli5@gmail.com">matheusmpicolli5@gmail.com</a></li>
+<li>📞 +55 48 99108-7790</li>
+<li>🔗 <a href="#" target="_blank">LinkedIn</a></li>
+</ul>
+</section>
 
 </main>
 
 <footer>
-    © 2025 — Matheus Maffezzoli Picolli | Digital Forensics & Incident Response
+© 2025 — Digital Forensics & Incident Response Portfolio
 </footer>
+
+<script>
+function setLang(lang) {
+    document.querySelectorAll('[id$="-pt"]').forEach(e => e.classList.toggle('hidden', lang !== 'pt'));
+    document.querySelectorAll('[id$="-en"]').forEach(e => e.classList.toggle('hidden', lang !== 'en'));
+}
+</script>
 
 </body>
 </html>
